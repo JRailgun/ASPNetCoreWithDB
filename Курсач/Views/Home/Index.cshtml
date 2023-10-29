@@ -1,0 +1,44 @@
+﻿
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+ <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Номер телефона</th>
+            </tr>
+            <tr>
+                    <th>------</th>
+                    <th>------------------</th>
+                    <th>---------------</th>
+                    <th>------------------</th>
+                    <th>-----------------------</th>
+                </tr>
+        </thead>
+        <tbody>
+            @foreach(var i in Model.telefons)
+            {            
+                <tr>
+                   <th>@i.Id</th>
+                   <th>@i.s_Name</th>
+                   <th>@i.f_Name</th>
+                   <th>@i.t_Name</th>
+                   <th>@i.PhoneNumb</th>
+                   <th>
+                   <form method="post" asp-action="edit" asp-route-id="@i.Id" asp-controller="home">
+                   <input type="submit" value="Изменить" class="btn btn-default"/></form>
+                   </th>
+                   <th><form method="post" asp-controller="home" asp-action="delete">
+                   <input type="hidden" value=@i.Id name="Id"/>
+                   <input type="submit" value="Удалить" class="btn btn-default"/>
+                   </form>
+                </tr>
+            }
+        </tbody>
+        </table>
+        <a asp-action="create">Добавить телефон</a>

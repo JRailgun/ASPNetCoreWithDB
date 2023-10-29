@@ -1,0 +1,50 @@
+﻿@model Telefon;
+@{
+    ViewBag.Title = "Добавление телефона";
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+        <style>
+            .input-validation-error {
+                border-color: red;
+            }
+        </style>
+    </head>
+</html>
+
+<div class="text-center">
+    <h1 class="display-4">Редактирование телефона</h1>
+</div>
+<form  asp-action="edit" asp-controller="home" method="post">
+    <div class="form-group">
+        <label asp-for="s_Name" class="control-label">Фамилия</label>
+        <input type="text" asp-for="s_Name" class="form-control" />
+        <span asp-validation-for=s_Name class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="f_Name" class="control-label">Имя</label>
+        <input type="text" asp-for="f_Name" class="form-control" />
+        <span asp-validation-for=f_Name class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="t_Name" class="control-label">Отчество</label>
+        <input type="text" asp-for="t_Name" class="form-control" />
+        <span asp-validation-for=t_Name class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumb" class="control-label">Номер телефона</label>
+        <input type="text" asp-for="PhoneNumb" class="form-control" />
+        <span asp-validation-for=PhoneNumb class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Изменить" class="btn btn-default" />
+    </div>
+</form>
+<form asp-action="back" asp-controller="home">
+    <input type="submit" value="Назад" class="btn btn-default"/>
+</form>
